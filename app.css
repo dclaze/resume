@@ -49,9 +49,20 @@ body {
     border-radius: 4000px;
 }
 
+.small-icon {
+    height: 8px;
+    width: 8px;
+}
+
 .icon {
     height: 16px;
     width: 16px;
+    margin-right: 1em;
+}
+
+.big-icon {
+    height: 32px;
+    width: 32px;
     margin-right: 1em;
 }
 
@@ -169,4 +180,30 @@ section {
 .work-info-item .description {
     padding: 1em;
     font-style: italic;
+}
+
+.education-info-item {
+    padding: 0.5em;
+}
+
+.education-info-item .header{
+}
+
+.education-info-item .major {
+    display: block;
+    font-size: 1.2em;
+    color: #0083b9;
+    text-transform: uppercase;
+}
+
+.education-info-item .school-type {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.education-info-item .school-name {
+    width: 66%;
+    font-size: 0.8em;
+    text-align: right;
 }
