@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="app.css">
     <script type="text/javascript" src="html5-video-autoplay-on-hover.js"></script>
+    <script type="text/javascript" src="http://www.youtube.com/player_api"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
             <div class="profile-picture">
                 <a style="text-decoration: none;" href="https://www.linkedin.com/profile/view?id=111168715">
                     <img class="rounded" src="doug_square.png" />
-                    <video class="rounded" preload="auto">
-                        <source src="http://googledrive.com/host/0B_N2joj_1-aDcUlXemx2T0JYTTA" type="video/mp4">
+                    <video class="rounded">
+                        <source src="https://github.com/Giphy/GiphyAPI/blob/master/api_giphy_header.gif" type="video/mp4">
                             Your browser does not support the video tag.
                     </video>
                 </a>
@@ -40,31 +41,75 @@
                 </span>
             </div>
         </div>
-        <div class="row big-padding">
+        <div class="row">
             <div class="left-section column flex">
-                <header>
-                    <img class="icon" src="icons/workexperience.png" /> Work Exprience
-                </header>
-                <header>
-                    <img class="icon" src="icons/education.png" /> Education
-                </header>
-                <header>
-                    <img class="icon" src="icons/timeline.png" /> TimeLine
-                </header>
-                <header>
-                    <img class="icon" src="icons/skills.png" /> Professional Skills
-                </header>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/workexperience.png" /> Work Exprience
+                    </header>
+                    <div class="work-info-item">
+                        <div class="header row">
+                            <span class="title"> Software Developer</span> -
+                            <span class="employer flex">Marathon Data Systems</span>
+                            <span class="location">
+                                <img class="icon" src="icons/pin.png"/>
+                                Neptune, NJ
+                            </span>
+                        </div>
+                        <div class="period">
+                            05/12 - Current
+                        </div>
+                        <div class="description">
+                            Architect and implement distributed message based platform applying SOA using NServiceBus and RavenDB for a SaaS Field Service Automation system. Design Restful API using C# WebAPI, Develop HTML5 Single Page Application using AngularJS Lead discussions with Product Management and Engineering teams to apply DDD to actual customer business workflows Lead TDD (xUnit and SpecFlow), and Agile Methodology processes to promote team best practices, code craftsmanship, and quality Implement continuous deployment strategies using TeamCity, Octopus, and AWS
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/education.png" /> Education
+                    </header>
+                    <div class="row">
+                        <div class="education-info-item">
+                            <div>
+                                <span class="major">Computer Science</span> -
+                                <span class="school-type">Bachelor's of Science</span>
+                            </div>
+                        </div>
+                        <div class="education-info-item">
+                            <div>
+                                <span class="major">Computer Science</span> -
+                                <span class="school-type">Master's of Science</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/timeline.png" /> TimeLine
+                    </header>
+                </section>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/skills.png" /> Professional Skills
+                    </header>
+                </section>
             </div>
             <div class="right-section column">
-                <header>
-                    <img class="icon" src="icons/profile.png" /> Who am I?
-                </header>
-                <header>
-                    <img class="icon" src="icons/internation-pin.png" /> International Experience
-                </header>
-                <header>
-                    <img class="icon" src="icons/interests.png" /> Interests
-                </header>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/profile.png" /> Who am I?
+                    </header>
+                </section>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/internation-pin.png" /> International Experience
+                    </header>
+                </section>
+                <section>
+                    <header>
+                        <img class="icon" src="icons/interests.png" /> Interests
+                    </header>
+                </section>
                 <header>
                     Linked In
                 </header>

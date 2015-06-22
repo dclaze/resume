@@ -39,6 +39,10 @@ body {
     padding: 15px;
 }
 
+.small-padding {
+    padding: 7.5px;
+}
+
 .rounded {
     height: 200px;
     width: 200px;
@@ -55,24 +59,30 @@ body {
     background-color: #f2f2f2;
 }
 
-.left-section {}
+.left-section {
+    padding: 1em;
+}
 
 .right-section {
+    padding: 1em;
     width: 33%;
 }
 
 header {
-    font-size: 1.2em;
+    font-size: 1.4em;
     text-transform: uppercase;
-    padding: 1em;
+    padding-bottom: 1em;
 }
 
 header .icon {
     margin-right: 1em;
 }
 
-.profile-picture{
+section {
+    padding: 1em;
 }
+
+.profile-picture {}
 
 .profile-picture:hover img {
     display: none;
@@ -93,8 +103,9 @@ header .icon {
     display: block;
     vertical-align: middle;
 }
+
 .contact-info a {
-	color: #343338;
+    color: #343338;
     text-decoration: none;
 }
 
@@ -118,4 +129,44 @@ header .icon {
     text-transform: uppercase;
     color: #706f75;
     /*secondary color*/
+}
+
+.work-info-item {}
+
+.work-info-item .header {
+    vertical-align: middle;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #f2f2f2;
+    margin-bottom: 0.5em;
+}
+
+.work-info-item .title {
+    font-size: 1.2em;
+    color: #0083b9;
+    text-transform: uppercase;
+    margin-right: 0.5em;
+}
+
+.work-info-item .employer {
+    margin-left: 0.5em;
+}
+
+.work-info-item .location {
+    font-size: 0.8em;
+    color: #706f75;
+}
+
+.work-info-item .location img {
+    margin-right: 0em;
+}
+
+.work-info-item .period {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.work-info-item .description {
+    padding: 1em;
+    font-style: italic;
 }
