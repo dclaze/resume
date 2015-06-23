@@ -186,8 +186,7 @@ section {
     padding: 0.5em;
 }
 
-.education-info-item .header{
-}
+.education-info-item .header {}
 
 .education-info-item .major {
     display: block;
@@ -206,4 +205,10 @@ section {
     width: 66%;
     font-size: 0.8em;
     text-align: right;
+}
+
+.international-map {
+    z-index: 100;
+    height: 168px;
+    width: 300px
 }
