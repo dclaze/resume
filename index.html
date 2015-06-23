@@ -3,6 +3,9 @@
 <head>
     <link rel="stylesheet" type="text/css" href="app.css">
     <script type="text/javascript" src="html5-video-autoplay-on-hover.js"></script>
+    <script type="text/javascript" src="bower_components\d3\d3.min.js"></script>
+    <script type="text/javascript" src="bower_components\d3-cloud\d3.layout.cloud.js"></script>
+    <script type="text/javascript" src="word-cloud.js"></script>
 </head>
 
 <body>
@@ -17,8 +20,9 @@
                 <a style="text-decoration: none;" href="https://www.linkedin.com/profile/view?id=111168715">
                     <img class="rounded" src="doug_square.png" />
                     <video class="rounded">
-                        <source src="https://github.com/Giphy/GiphyAPI/blob/master/api_giphy_header.gif" type="video/mp4">
+                        <!--<source src="http://googledrive.com/host/0B_N2joj_1-aDcUlXemx2T0JYTTA"*/ type="video/mp4">
                             Your browser does not support the video tag.
+                        -->
                     </video>
                 </a>
             </div>
@@ -128,6 +132,8 @@
                     <header>
                         <img class="icon" src="icons/interests.png" /> Interests
                     </header>
+                    <div id="interests">
+                    </div>
                 </section>
                 <header>
                     Linked In

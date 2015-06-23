@@ -1,0 +1,19 @@
+{
+  "name": "resume",
+  "version": "0.0.0",
+  "authors": [
+    "Doug Colaizzo <dcolaizzo@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3-cloud": "https://github.com/jasondavies/d3-cloud.git#~1.1.1",
+    "d3": "~3.5.5"
+  }
+}
