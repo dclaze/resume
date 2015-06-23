@@ -1,3 +1,4 @@
+/*https://snazzymaps.com/style/24961/simple-dark-gray*/
 var simpleGrayThemeStyle = [{
     "featureType": "administrative",
     "elementType": "all",
