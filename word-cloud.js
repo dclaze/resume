@@ -9,7 +9,7 @@ function getWords(words) {
     });
 }
 
-window.onload = function() {
+window.addEventListener("load", function() {
     var fill = d3.scale.category20();
 
     var width = d3.select('#interests').node().getBoundingClientRect().width,
@@ -53,4 +53,4 @@ window.onload = function() {
                 return d.text;
             });
     }
-}
+});
