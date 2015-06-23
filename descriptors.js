@@ -6,12 +6,17 @@ window.addEventListener("load", function() {
     var color = d3.scale.ordinal()
         .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
+    var outerArcOuterRadius = radius - radius / 10,
+        outerArcInnerRadius = radius - radius / 2.1,
+        innerArcOuterRadius = radius - radius / 1.9,
+        innerArcInnerRadius = radius - radius / 1.2;
+
     var outerArc = d3.svg.arc()
-        .outerRadius(radius - 10)
-        .innerRadius(radius - 60);
+        .outerRadius(outerArcOuterRadius)
+        .innerRadius(outerArcInnerRadius);
     var innerArc = d3.svg.arc()
-        .outerRadius(radius - 70)
-        .innerRadius(radius - 110);
+        .outerRadius(innerArcOuterRadius)
+        .innerRadius(innerArcInnerRadius);
 
     var pie = d3.layout.pie()
         .sort(null)
@@ -67,7 +72,7 @@ window.addEventListener("load", function() {
         .attr("d", innerArc)
         .style("fill", function(d) {
             return "#0184ba";
-        });        
+        });
 
     g.append("text")
         .attr("transform", function(d) {
