@@ -184,6 +184,7 @@ section {
 
 .education-info-item {
     padding: 0.5em;
+    max-width: 50%;
 }
 
 .education-info-item .header {}
@@ -208,9 +209,8 @@ section {
 }
 
 .international-map {
-    z-index: 100;
+    text-align: center;
     height: 168px;
-    width: 300px
 }
 
 .linked-in {
