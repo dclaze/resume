@@ -212,3 +212,15 @@ section {
     height: 168px;
     width: 300px
 }
+
+.linked-in {
+    text-align: center;
+}
+
+.linked-in .qr-code {
+    width: 50%;
+}
+
+.linked-in .logo {
+    width: 50%;
+}
