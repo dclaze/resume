@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="app.css">
     <script type="text/javascript" src="html5-video-autoplay-on-hover.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="text/javascript" src="international-map.js"></script>
     <script type="text/javascript" src="bower_components\d3\d3.min.js"></script>
     <script type="text/javascript" src="bower_components\d3-cloud\d3.layout.cloud.js"></script>
@@ -30,21 +30,23 @@
                 </a>
             </div>
             <div class="contact-info">
-                <span class="email">
-                    <img class="icon" src="icons/email.png"/>
-                    <a href="mailto:dcolaizzo@gmail.com">dcolaizzo@gmail.com</a>
-                </span>
-                <span class="phone">
-                    <img class="icon" src="icons/phone.png"/>
-                    <a href="tel:+12019531983">+1 201 953 1983</a>
-                </span>
-                <span class="address">
-                    <img class="icon" src="icons/address.png"/>
-                    <a href="https://maps.google.com/?q=7 Hatfield St Caldwell NJ 07006">    
+                <div>
+                    <div class="email method">
+                        <img class="icon" src="icons/email.png" />
+                        <a href="mailto:dcolaizzo@gmail.com">dcolaizzo@gmail.com</a>
+                    </div>
+                    <div class="phone method">
+                        <img class="icon" src="icons/phone.png" />
+                        <a href="tel:+12019531983">+1 201 953 1983</a>
+                    </div>
+                    <div class="address method">
+                        <img class="icon" src="icons/address.png" />
+                        <a href="https://maps.google.com/?q=7 Hatfield St Caldwell NJ 07006">    
                         7 Hatfield St
                         Caldwell NJ 07006   
                     </a>
-                </span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -144,7 +146,7 @@
                 </section>
                 <section class="linked-in">
                     <img class="qr-code" src="http://api.qrserver.com/v1/create-qr-code/?color=146ea3&data=https://www.linkedin.com/profile/view?id=111168715" />
-                    <img class="logo" src="icons/linkedin-logo-tm.png"/>
+                    <img class="logo" src="icons/linkedin-logo-tm.png" />
                 </section>
             </div>
         </div>
