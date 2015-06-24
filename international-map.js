@@ -134,11 +134,47 @@ function initialize() {
         panControl: false,
         zoomControl: false,
         streetViewControl: false,
+        draggable: false,
         styles: simpleGrayThemeStyle
     }
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
     fitWorldMap(map);
+
+    function getCityName(location) {
+        var cityEntry = location.address_components.filter(function(a) {
+            return a.types.indexOf("locality") != -1
+        })[0];
+        if (cityEntry)
+            return cityEntry["short_name"];
+    }
+
+    function getStateName(location) {
+        var stateEntry = location.address_components.filter(function(a) {
+            return a.types.indexOf("administrative_area_level_1") != -1
+        })[0];
+        if (stateEntry)
+            return stateEntry["short_name"];
+    }
+
+    var locationName = "Marathon Data Systems";
+    var places = new google.maps.places.PlacesService(map);
+    places.textSearch({
+        query: locationName
+    }, function(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            if (results && results.length) {
+                places.getDetails({
+                    placeId: results[0].place_id
+                }, function(location, b) {
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        if (location)
+                            console.log(getCityName(location), getStateName(location));
+                    }
+                });
+            }
+        }
+    });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
