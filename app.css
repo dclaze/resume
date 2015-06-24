@@ -46,7 +46,7 @@ body {
 .rounded {
     height: 200px;
     width: 200px;
-    border-radius: 4000px;
+    border-radius: 400px;
 }
 
 .small-icon {
@@ -72,6 +72,9 @@ body {
 
 .left-section {
     padding: 1em;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #f2f2f2;
 }
 
 .right-section {
@@ -107,17 +110,22 @@ section {
     display: block;
 }
 
-.contact-info {}
+.contact-info {
+    margin: auto;
+    padding: 1em;
+}
 
-.contact-info span {
+.contact-info .method {
     padding: 4px;
-    display: block;
-    vertical-align: middle;
 }
 
 .contact-info a {
     color: #343338;
     text-decoration: none;
+}
+
+.contact-info .icon {
+    margin-right: 1.2em;
 }
 
 .first-name {
@@ -182,7 +190,7 @@ section {
     font-style: italic;
 }
 
-.education-info .education-info-item:not(:last-child){
+.education-info .education-info-item:not(:last-child) {
     border-right-style: solid;
     border-right-width: 1px;
     border-right-color: #f2f2f2;
