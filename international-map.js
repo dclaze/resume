@@ -139,6 +139,27 @@ function initialize() {
     }
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
+    var markerIcon = {
+        url: 'icons/map-pin.png',
+        scaledSize: {
+            width: 25,
+            height: 35
+        }
+    };
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(40.221662, -74.087473),
+        icon: markerIcon,
+        map: map,
+        title: 'Marathon Data Systems'
+    });
+
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(45.4420873, 10.9957576),
+        icon: markerIcon,
+        map: map,
+        title: 'Viamente'
+    });
+
     fitWorldMap(map);
 
     function getCityName(location) {
