@@ -1,0 +1,40 @@
+body {
+    width: 992px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+}
+
+.row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.row > div {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.flexrow > div:last-child {
+    margin-right: 0;
+}
+
+.top-section {
+    width: 992px;
+}
+
+.left-section {
+    width: 652px;
+}
+
+.right-section {
+    width: 340px;
+}
+
+.timeline {
+    height: 530px;
+    width: 652px;
+}
