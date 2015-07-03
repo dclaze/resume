@@ -1,15 +1,16 @@
 window.addEventListener("load", function() {
     var chart = d3.timeline();
     var width = d3.select('#timeline').node().getBoundingClientRect().width;
+
     var schoolDates = [{
         times: [{
-            "starting_time": new Date("2007-01-01").getTime(),
-            "ending_time": new Date("2012-01-01").getTime()
+            "starting_time": new Date(2007, 0, 01).getTime(),
+            "ending_time": new Date(2012, 0, 01).getTime()
         }]
     }, {
         times: [{
-            "starting_time": new Date("2012-01-01").getTime(),
-            "ending_time": new Date("2015-01-01").getTime(),
+            "starting_time": new Date(2012, 0, 01).getTime(),
+            "ending_time": new Date(2015, 0, 01).getTime(),
         }]
     }];
     var chart = d3.timeline()
@@ -19,7 +20,7 @@ window.addEventListener("load", function() {
             tickInterval: 1,
             tickSize: 3
         })
-        .rotateTicks(20)
+        .rotateTicks(40)
         .showTimeAxisTick()
         .stack();
 
