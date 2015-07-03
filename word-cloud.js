@@ -1,4 +1,4 @@
-var words = ["node.js", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running"];
+var interests = ["node.js", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running", "Raspberry Pi", "drones", "AI", "Silicon Valley", "NASA", "Space", "Running"];
 
 function getWords(words) {
     return words.map(function(d) {
@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
 
     var layout = d3.layout.cloud()
         .size([width, height])
-        .words(getWords(words))
+        .words(getWords(interests))
         .padding(5)
         .rotate(function() {
             return ~~(Math.random() * 2) * 90;
