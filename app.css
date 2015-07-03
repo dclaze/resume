@@ -150,6 +150,18 @@ section {
     /*secondary color*/
 }
 
+.print {
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1em;
+}
+
+body:not(:hover) .print{
+    display: none;
+}
+
 .work-info-item {}
 
 .work-info-item .header {
