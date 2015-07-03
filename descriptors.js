@@ -77,9 +77,8 @@ window.addEventListener("load", function() {
     function addWordToOuterArc(word, offset) {
         return svg.append("text")
             .append("textPath")
-            .attr("stroke", "#706f75")
             .attr("fill", "#706f75")
-            .attr("font-size", "1em")
+            .attr("font-size", "0.8em")
             .attr("font-family", "Open Sans")
             .attr("xlink:href", "#outerArcTextPath")
             .attr("dominant-baseline", 'middle')
@@ -93,9 +92,8 @@ window.addEventListener("load", function() {
     function addWordToInnerArc(word, offset) {
         return svg.append("text")
             .append("textPath")
-            .attr("stroke", "white")
             .attr("fill", "white")
-            .attr("font-size", "1em")
+            .attr("font-size", "0.8em")
             .attr("font-family", "Open Sans")
             .attr("xlink:href", "#innerArcTextPath")
             .attr("dominant-baseline", 'middle')
