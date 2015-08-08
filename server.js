@@ -20,7 +20,7 @@ app.get('/print', function(req, res) {
     var fullFilePath = path.join(__dirname, publicFilePath);
     var fileStream = wkhtmltopdf("http://localhost:32132?print-css=true", {
             pageSize: 'letter',
-            javascriptDelay: 2000
+            javascriptDelay: 2500
         })
         .pipe(fs.createWriteStream(fullFilePath));
     fileStream.on("finish", function() {
