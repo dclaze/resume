@@ -17,6 +17,8 @@
     "d3": "~3.5.5",
     "d3-timeline": "~0.0.5",
     "typed.js": "*",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "angular": "~1.4.3",
+    "angular-resource": "~1.4.3"
   }
 }

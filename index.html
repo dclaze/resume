@@ -1,10 +1,12 @@
-<html>
+<html data-ng-app="resume">
 
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" type="text/css" href="timeline.css">
     <script src="loadPrintCss.js"></script>
+    <script type="text/javascript" src="bower_components\angular\angular.js"></script>
+    <script type="text/javascript" src="bower_components\angular-resource\angular-resource.js"></script>
     <script type="text/javascript" src="html5-video-autoplay-on-hover.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="text/javascript" src="international-map.js"></script>
@@ -14,9 +16,11 @@
     <script type="text/javascript" src="word-cloud.js"></script>
     <script type="text/javascript" src="descriptors.js"></script>
     <script type="text/javascript" src="timeline.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="resume.js"></script>
 </head>
 
-<body>
+<body data-ng-controller="Main">
     <div class="column fullscreen">
         <div class="row top-section big-padding">
             <div class="flex">
@@ -28,8 +32,7 @@
                 <a style="text-decoration: none;" href="https://www.linkedin.com/profile/view?id=111168715">
                     <img class="rounded" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOHAAAAJDE0YThjMzUzLTdiMGYtNDViYi1iZDI0LTVlMGY5NjE1ZWNmYQ.jpg" />
                     <video class="rounded">
-                        <source src="videos/asbury_agile_10-2-13.MOV" type="video/mp4">
-                            Your browser does not support the video tag.
+                        <source src="videos/asbury_agile_10-2-13.MOV" type="video/mp4"> Your browser does not support the video tag.
                         </source>
                     </video>
                 </a>
