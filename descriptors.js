@@ -1,4 +1,4 @@
-var words = ["Hater", "Agressive", "Lazy", "Late", "Freak", "Slow", "False", "Incorrect", "Drag"];
+var words = [ "Fun", "Inspired", "Energetic", "Honest", "Creative", "Curious", "Doer", "Honorable", "Inventor", "Resourceful"];
 var name = "Doug";
 
 window.addEventListener("load", function() {
