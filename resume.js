@@ -34,5 +34,9 @@ angular.module('resume').service('Resume', ['$resource', '$http', function($reso
         return resumeInstance;
     };
 
+    resume.prototype.isNew = function(){
+        return !this.id;
+    };
+
     return resume;
 }]);

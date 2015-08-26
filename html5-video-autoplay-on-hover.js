@@ -8,5 +8,9 @@ window.onload = function() {
         videoTag.addEventListener("mouseout", function(e) {
             e.target.pause();
         })
+
+        videoTag.currentTime = 166; //Asbury Agile Starting Time
     }
+
+
 };

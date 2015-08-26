@@ -126,6 +126,11 @@ function fitWorldMap(map) {
 
 
 function initialize() {
+    if(!window.google) {
+        console.error("Google is not defined");
+        return;
+    }
+
     var mapCanvas = document.getElementById('international-map');
     var mapOptions = {
         zoom: 1,

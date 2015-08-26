@@ -1,9 +1,23 @@
+.modal .ngdialog-content {
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
 body {
     color: #343338;
     /*Default Color*/
-    
     margin: auto;
     max-width: 992px;
+}
+
+p {
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+p + p {
+    margin-top: 1em;
 }
 
 .fullscreen {
@@ -20,6 +34,10 @@ body {
     -webkit-flex-direction: row;
     flex-direction: row;
     position: relative;
+}
+
+.stretch {
+    align-items: center;
 }
 
 .column {
@@ -68,18 +86,19 @@ body {
 
 .top-section {
     background-color: #f2f2f2;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #f2f2f2;
 }
 
 .left-section {
-    padding: 1em;
     border-right-style: solid;
     border-right-width: 1px;
     border-right-color: #f2f2f2;
 }
 
 .right-section {
-    padding: 1em;
-    width: 33%;
+    width: 30%;
 }
 
 header {
@@ -93,7 +112,7 @@ header .icon {
 }
 
 section {
-    padding: 1em;
+    padding: 1em 1em 0 1em;
 }
 
 .profile-picture {}
@@ -119,7 +138,7 @@ section {
     padding: 4px;
 }
 
-.contact-info a {
+a {
     color: #343338;
     text-decoration: none;
 }
@@ -158,13 +177,40 @@ section {
     margin-bottom: 1em;
 }
 
-body:not(:hover) .print{
+body:not(:hover) .print {
     display: none;
+}
+
+.descriptors {
+    margin-bottom: -40px;
+}
+
+.ribbon {
+    width: 300px;
+    color: white;
+    text-align: center;
+    position: fixed;
+    top: 75px;
+    right: -75px;
+    padding: 10px;
+    transform: rotate(45deg);
+    background-color: #146ea3;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.github-ribbon {
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 0;
+    z-index: 1;
 }
 
 .work-info-item {}
 
-.work-info-item .header {
+.work-info-item .header,
+.volunteering-info .header {
     vertical-align: middle;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -172,14 +218,16 @@ body:not(:hover) .print{
     margin-bottom: 0.5em;
 }
 
-.work-info-item .title {
+.work-info-item .title,
+.volunteering-info .title {
     font-size: 1.2em;
     color: #0083b9;
     text-transform: uppercase;
     margin-right: 0.5em;
 }
 
-.work-info-item .employer {
+.work-info-item .employer,
+.volunteering-info .employer {
     margin-left: 0.5em;
 }
 
@@ -192,17 +240,28 @@ body:not(:hover) .print{
     margin-right: 0em;
 }
 
-.work-info-item .period {
+.work-info-item .period,
+.volunteering-info .period {
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.work-info-item .description {
+.work-info-item .description,
+.volunteering-info .description {
     padding: 1em;
     font-style: italic;
 }
 
-.education-info .education-info-item:not(:last-child) {
+.education-info th {
+    vertical-align: bottom;
+}
+
+.education-info td {
+    padding: 0.5em;
+}
+
+.education-info td:not(:last-child),
+th:not(:last-child) {
     border-right-style: solid;
     border-right-width: 1px;
     border-right-color: #f2f2f2;
@@ -214,25 +273,27 @@ body:not(:hover) .print{
     /*max-width: 50%;*/
 }
 
-.education-info .education-info-item .header {}
-
-.education-info .education-info-item .major {
-    display: block;
+.education-info .major {
     font-size: 1.2em;
     color: #0083b9;
+    text-align: left;
     text-transform: uppercase;
 }
 
-.education-info .education-info-item .school-type {
+.education-info .school-type {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.8em;
 }
 
-.education-info .education-info-item .school-name {
+.education-info .school-name {
     width: 66%;
     font-size: 0.8em;
     text-align: right;
+}
+
+.timeline div {
+    margin-bottom: -30px;
 }
 
 .international-map {
@@ -258,7 +319,7 @@ body:not(:hover) .print{
 .skills {}
 
 .skills ul {
-    max-height: 20px;
+    /*max-height: 20px;*/
     list-style-type: none;
 }
 
@@ -271,7 +332,7 @@ body:not(:hover) .print{
     display: inline;
     padding-left: 1em;
     padding-bottom: 1em;
-    width: 40%;
+    /*width: 40%;*/
 }
 
 .meter {

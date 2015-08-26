@@ -1,0 +1,18 @@
+@media print {
+    body {
+        width: 992px;
+    }
+    .print .icon {
+        display: none;
+    }
+    .ribbon {
+        display: none;
+    }
+    @page {
+        size: auto;
+        margin: 5mm;
+    }
+    .github-ribbon {
+        display: none;
+    }
+}

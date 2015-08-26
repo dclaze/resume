@@ -4,33 +4,51 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" type="text/css" href="timeline.css">
-    <script src="loadPrintCss.js"></script>
+    <link rel="stylesheet" type="text/css" href="bower_components\ngDialog\css\ngDialog.css">
+    <link rel="stylesheet" type="text/css" href="bower_components\ngDialog\css\ngDialog-theme-default.css">
+    <link rel="stylesheet" type="text/css" href="print.css">
     <script type="text/javascript" src="bower_components\angular\angular.js"></script>
     <script type="text/javascript" src="bower_components\angular-resource\angular-resource.js"></script>
+    <script type="text/javascript" src="bower_components\angular-route\angular-route.js"></script>
+    <script type="text/javascript" src="bower_components\json-editor\dist\jsoneditor.js"></script>
+    <script type="text/javascript" src="bower_components\angular-json-editor\dist\angular-json-editor.js"></script>
+    <script type="text/javascript" src="bower_components\ngDialog\js\ngDialog.js"></script>
     <script type="text/javascript" src="html5-video-autoplay-on-hover.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="text/javascript" src="international-map.js"></script>
     <script type="text/javascript" src="bower_components\d3\d3.min.js"></script>
     <script type="text/javascript" src="bower_components\d3-cloud\d3.layout.cloud.js"></script>
     <script type="text/javascript" src="bower_components\d3-timeline\src\d3-timeline.js"></script>
-    <script type="text/javascript" src="word-cloud.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="descriptors.js"></script>
     <script type="text/javascript" src="timeline.js"></script>
-    <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="resume.js"></script>
+    <script type="text/javascript" src="googleAddressLookup.js"></script>
+    <script type="text/javascript" src="interests.js"></script>
+    <script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key: 77019 vxdfuwy53
+    authorize: true
+    </script>
+    <script type="text/javascript" src="LinkedInToJsonResume.js"></script>
 </head>
 
 <body data-ng-controller="Main">
+    <div class="ribbon" data-ng-click="open()">
+        Try uploading YOUR own resume
+    </div>
+    <a class="github-ribbon" href="https://github.com/dclaze">
+        <img src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
     <div class="column fullscreen">
         <div class="row top-section big-padding">
             <div class="flex">
-                <span class="first-name">Doug</span>
-                <span class="last-name">Colaizzo</span>
-                <span class="profession">Software Engineer</span>
+                <span class="first-name">{{resume.basics.name | firstName}}</span>
+                <span class="last-name">{{resume.basics.name | lastName}}</span>
+                <span class="profession">{{resume.basics.label | linkedInProfession}}</span>
             </div>
             <div class="profile-picture">
-                <a style="text-decoration: none;" href="https://www.linkedin.com/profile/view?id=111168715">
-                    <img class="rounded" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAOHAAAAJDE0YThjMzUzLTdiMGYtNDViYi1iZDI0LTVlMGY5NjE1ZWNmYQ.jpg" />
+                <a data-ng-href="{{resume.linkedIn.profileUrl}}">
+                    <img class="rounded" data-ng-src="{{resume.basics.picture}}" />
                     <video class="rounded">
                         <source src="videos/asbury_agile_10-2-13.MOV" type="video/mp4"> Your browser does not support the video tag.
                         </source>
@@ -41,28 +59,27 @@
                 <div>
                     <div class="email method">
                         <img class="icon" src="icons/email.png" />
-                        <a href="mailto:dcolaizzo@gmail.com">dcolaizzo@gmail.com</a>
+                        <a href="mailto:{{resume.basics.email}}">{{resume.basics.email}}</a>
                     </div>
                     <div class="phone method">
                         <img class="icon" src="icons/phone.png" />
-                        <a href="tel:+12019531983">+1 201 953 1983</a>
+                        <a href="tel:{{resume.basics.phone}}">{{resume.basics.phone}}</a>
                     </div>
                     <div class="website method">
                         <img class="icon" src="icons/www.png" />
-                        <a href="http://www.dougcolaizzo.com">
-                            <span>www.dougcolaizzo.com</span>
+                        <a ng-href="{{resume.basics.website | website}}" target="_blank">
+                            <span>{{resume.basics.website}}</span>
                         </a>
                     </div>
                     <div class="address method">
                         <img class="icon" src="icons/address.png" />
-                        <a href="https://maps.google.com/?q=7 Hatfield St Caldwell NJ 07006">
-                            <span>7 Hatfield St</span>
-                            <span>Caldwell NJ 07006</span>
+                        <a href="{{resume.basics.location | googleMapsUrl}}" target="_blank">
+                            <span long-address="resume.basics.location"></span>
                         </a>
                     </div>
                 </div>
             </div>
-            <a class="print" href="javascript:window.open('/print', '_blank')">
+            <a class="print" href="javascript:window.print()">
                 <img class="icon" src="icons/print.png" />
             </a>
         </div>
@@ -72,20 +89,23 @@
                     <header>
                         <img class="icon" src="icons/workexperience.png" /> Work Exprience
                     </header>
-                    <div class="work-info-item">
-                        <div class="header row">
-                            <span class="title"> Software Developer</span> -
-                            <span class="employer flex">Marathon Data Systems</span>
-                            <span class="location">
-                                <img class="icon" src="icons/pin.png"/>
-                                Neptune, NJ
+                    <div class="work-info-item" data-ng-repeat="workItem in resume.work">
+                        <div class="header row stretch">
+                            <span class="title">{{workItem.position}}</span> -
+                            <span class="employer flex">{{workItem.company}}</span>
+                            <span class="location" data-ng-if="workItem.location">
+                                <a style="text-decoration: none;" href="{{workItem.location | googleMapsUrl}}" target="_blank">
+                                    <img class="icon" src="icons/pin.png"/>
+                                    <span short-address="workItem.location"></span>
+                            </a>
                             </span>
                         </div>
                         <div class="period">
-                            05/12 - Current
+                            {{workItem.startDate | date:'MM/yy'}} - {{workItem.endDate | date:'MM/yy'}}
+                            <span data-ng-if="!workItem.endDate">Current</span>
                         </div>
                         <div class="description">
-                            Architect and implement distributed message based platform applying SOA using NServiceBus and RavenDB for a SaaS Field Service Automation system. Design Restful API using C# WebAPI, Develop HTML5 Single Page Application using AngularJS Lead discussions with Product Management and Engineering teams to apply DDD to actual customer business workflows Lead TDD (xUnit and SpecFlow), and Agile Methodology processes to promote team best practices, code craftsmanship, and quality Implement continuous deployment strategies using TeamCity, Octopus, and AWS
+                            <div work-summary="workItem.summary"></div>
                         </div>
                     </div>
                 </section>
@@ -93,83 +113,56 @@
                     <header>
                         <img class="icon" src="icons/education.png" /> Education
                     </header>
-                    <div class="row">
-                        <div class="education-info-item">
-                            <div class="header">
-                                <span class="major">Computer Science</span>
-                                <span class="school-type">Master's of Science</span>
-                            </div>
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </div>
-                            <div class="row">
-                                <img class="big-icon" src="icons/ribbon-blue.png" />
-                                <div>
-                                    <img class="small-icon" src="icons/pin.png" />
-                                    <span class="school-name">New Jersey Institute of Technology</span>
-                                </div>
-                            </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="major" data-major="educationItem.area" data-ng-repeat="educationItem in resume.education.slice().reverse()">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-ng-repeat="educationItem in resume.education.slice().reverse()">
+                                    <span class="school-type">{{educationItem.studyType}}</span>
+                                    <div class="row">
+                                        <img class="big-icon" ng-src="{{educationItem.color | educationRibbon}}" />
+                                        <div>
+                                            <img class="small-icon" src="icons/pin.png" />
+                                            <span class="school-name">
+                                                     <a href="{{educationItem.location ? (educationItem.location | googleMapsUrl) : null}}" target="_blank">
+                                                        {{educationItem.institution}}
+                                                     </a>
+                                                </span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="volunteering-info" data-ng-hide="!resume.volunteer || !resume.volunteer.length">
+                    <header>
+                        <img class="icon" src="icons/education.png" /> Volunteering
+                    </header>
+                    <div data-ng-repeat="volunteering in resume.volunteer">
+                        <div class="header row stretch">
+                            <span class="title">{{volunteering.position}}</span> -
+                            <span class="employer flex">{{volunteering.organization}}</span>
                         </div>
-                        <div class="education-info-item">
-                            <div class="header">
-                                <span class="major">Computer Science</span>
-                                <span class="school-type">Bachelor's of Science</span>
-                            </div>
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </div>
-                            <div class="row">
-                                <img class="big-icon" src="icons/ribbon-blue.png" />
-                                <div>
-                                    <img class="small-icon" src="icons/pin.png" />
-                                    <span class="school-name">New Jersey Institute of Technology</span>
-                                </div>
-                            </div>
+                        <div class="period">
+                            {{volunteering.startDate | date:'MM/yy'}} - {{volunteering.endDate | date:'MM/yy'}}
+                            <span data-ng-if="!workItem.endDate">Current</span>
+                        </div>
+                        <div class="description">
+                            <div work-summary="volunteering.summary"></div>
                         </div>
                     </div>
                 </section>
-                <section class="timeline">
+                <section class="quotes">
                     <header>
                         <img class="icon" src="icons/timeline.png" /> TimeLine
-                        <div id="timeline"></div>
+                        <div timeline="resume"></div>
                     </header>
-                </section>
-                <section class="skills">
-                    <header>
-                        <img class="icon" src="icons/skills.png" /> Professional Skills
-                    </header>
-                    <div>
-                        <ul>
-                            <li class="row skill-item">
-                                <span>C#</span>
-                                <meter value="90" max="100"></meter>
-                            </li>
-                            <li class="row skill-item">
-                                <span>Javascript</span>
-                                <meter value="90" max="100"></meter>
-                            </li>
-                            <li class="row skill-item">
-                                <span>Java</span>
-                                <meter value="50" max="100"></meter>
-                            </li>
-                            <li class="row skill-item">
-                                <span>HTML</span>
-                                <meter value="50" max="100"></meter>
-                            </li>
-                            <li class="row skill-item">
-                                <span>CSS</span>
-                                <meter value="50" max="100"></meter>
-                            </li>
-                            <li class="row skill-item">
-                                <span>C++</span>
-                                <meter value="50" max="100"></meter>
-                            </li>
-                            <li class="row skill-item">
-                                <span>Python</span>
-                                <meter value="50" max="100"></meter>
-                            </li>
-                        </ul>
-                    </div>
                 </section>
             </div>
             <div class="right-section column">
@@ -177,7 +170,19 @@
                     <header>
                         <img class="icon" src="icons/profile.png" /> Who am I?
                     </header>
-                    <div id="descriptors">
+                    <div class="descriptors" descriptors="resume.descriptors" name="resume.basics.name | firstName">
+                    </div>
+                </section>
+                <section class="skills">
+                    <header>
+                        <img class="icon" src="icons/skills.png" /> Skills
+                    </header>
+                    <div>
+                        <ul>
+                            <li class="row skill-item" data-ng-repeat="skill in resume.skills">
+                                <span>{{skill.name}}</span>
+                            </li>
+                        </ul>
                     </div>
                 </section>
                 <section class="experience">
@@ -191,12 +196,13 @@
                     <header>
                         <img class="icon" src="icons/interests.png" /> Interests
                     </header>
-                    <div id="interests">
-                    </div>
+                    <div interests="resume.interests"></div>
                 </section>
                 <section class="linked-in">
-                    <img class="qr-code" src="http://api.qrserver.com/v1/create-qr-code/?color=146ea3&data=https://www.linkedin.com/profile/view?id=111168715" />
-                    <img class="logo" src="icons/linkedin-logo-tm.png" />
+                    <a data-ng-href="{{resume.linkedIn.profileUrl}}">
+                        <img class="qr-code" data-ng-src="http://api.qrserver.com/v1/create-qr-code/?color=146ea3&data={{resume.linkedIn.profileUrl}}" />
+                        <img class="logo" src="icons/linkedin-logo-tm.png" />
+                    </a>
                 </section>
             </div>
         </div>
