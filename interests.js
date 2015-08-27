@@ -14,7 +14,7 @@ angular.module('resume').directive('interests', function() {
 
             function getWords(words) {
                 return words.map(function(d) {
-                    var size = 20;// + Math.random() * 90;
+                    var size = 20 + Math.random() * 5;
                     return {
                         text: d,
                         size: size,

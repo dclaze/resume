@@ -155,9 +155,9 @@ angular.module('resume').directive('descriptors', function() {
                             break;
                     }
 
-                    for (var idxKey in indiciesToRemove) {
-                        wordsList.splice(indiciesToRemove[idxKey], 1);
-                    }
+                    indiciesToRemove.reverse().forEach(function(i){
+                        wordsList.splice(i, 1);
+                    })
 
                     svg.selectAll('.temp').remove();
 
@@ -186,9 +186,9 @@ angular.module('resume').directive('descriptors', function() {
                             break;
                     }
 
-                    for (var idxKey in indiciesToRemove) {
-                        wordsList.splice(indiciesToRemove[idxKey], 1);
-                    }
+                    indiciesToRemove.reverse().forEach(function(i){
+                        wordsList.splice(i, 1);
+                    })
 
                     svg.selectAll('.temp').remove();
 

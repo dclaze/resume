@@ -34,7 +34,7 @@
 
 <body data-ng-controller="Main">
     <div class="ribbon" data-ng-click="open()">
-        Try uploading YOUR own resume
+        Try uploading YOUR resume
     </div>
     <a class="github-ribbon" href="https://github.com/dclaze">
         <img src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
@@ -49,10 +49,12 @@
             <div class="profile-picture">
                 <a data-ng-href="{{resume.linkedIn.profileUrl}}">
                     <img class="rounded" data-ng-src="{{resume.basics.picture}}" />
-                    <video class="rounded">
-                        <source src="videos/asbury_agile_10-2-13.MOV" type="video/mp4"> Your browser does not support the video tag.
+                    <video class="rounded" data-ng-if="resume.basics.video">
+                        <source src="{{resume.basics.video}}" type="video/mp4"> Your browser does not support the video tag.
                         </source>
                     </video>
+                    <div class="rounded" data-ng-if="!resume.basics.video">
+                    </div>
                 </a>
             </div>
             <div class="contact-info">
@@ -87,7 +89,7 @@
             <div class="left-section column flex">
                 <section>
                     <header>
-                        <img class="icon" src="icons/workexperience.png" /> Work Exprience
+                        <img class="icon" src="icons/workexperience.png" /> Work Experience
                     </header>
                     <div class="work-info-item" data-ng-repeat="workItem in resume.work">
                         <div class="header row stretch">
@@ -106,6 +108,19 @@
                         </div>
                         <div class="description">
                             <div work-summary="workItem.summary"></div>
+                        </div>
+                    </div>
+                </section>
+                <section class="projects" data-ng-show="resume.projects.length">
+                    <header>
+                        <img class="icon" src="icons/projects.png" />Projects
+                    </header>
+                    <div data-ng-repeat="project in resume.projects">
+                        <div class="header row stretch">
+                            <span class="title">{{project.name}}</span>
+                        </div>
+                        <div class="description">
+                            <p>{{project.description}}</p>
                         </div>
                     </div>
                 </section>
@@ -140,9 +155,15 @@
                         </tbody>
                     </table>
                 </section>
+                <section class="timeline">
+                    <header>
+                        <img class="icon" src="icons/timeline.png" /> TimeLine
+                        <div timeline="resume"></div>
+                    </header>
+                </section>
                 <section class="volunteering-info" data-ng-hide="!resume.volunteer || !resume.volunteer.length">
                     <header>
-                        <img class="icon" src="icons/education.png" /> Volunteering
+                        <img class="icon" src="icons/volunteer.png" /> Volunteering
                     </header>
                     <div data-ng-repeat="volunteering in resume.volunteer">
                         <div class="header row stretch">
@@ -157,12 +178,6 @@
                             <div work-summary="volunteering.summary"></div>
                         </div>
                     </div>
-                </section>
-                <section class="quotes">
-                    <header>
-                        <img class="icon" src="icons/timeline.png" /> TimeLine
-                        <div timeline="resume"></div>
-                    </header>
                 </section>
             </div>
             <div class="right-section column">
@@ -197,6 +212,18 @@
                         <img class="icon" src="icons/interests.png" /> Interests
                     </header>
                     <div interests="resume.interests"></div>
+                </section>
+                <section class="references" data-show="resume.references.length">
+                    <header>
+                        <img class="icon" src="icons/recommendation.png" /> Recomendations
+                    </header>
+                    <div>
+                        <img class="icon" src="icons/open-quotes.png" />
+                        <div class="description">{{resume.references[resume.references.length-1].reference.split('.')[0]}}</div>
+                        <img class="icon" style="float:right;" src="icons/close-quotes.png" /> - {{resume.references[resume.references.length-1].name}}
+                    </div>
+                </section>
+                <section class="flex">
                 </section>
                 <section class="linked-in">
                     <a data-ng-href="{{resume.linkedIn.profileUrl}}">

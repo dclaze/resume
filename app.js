@@ -37,9 +37,7 @@ angular.module('resume').directive('workSummary', function() {
         controller: ['$scope', function($scope) {
             $scope.$watch('summary', function(summary) {
                 if (summary) {
-                    $scope.summaries = summary.split(/\n\n+/).map(function(s) {
-                        return s.replace(/\n/, '<br/>');
-                    });
+                    $scope.summaries = summary.split(/☛/);
                 }
             });
         }]
@@ -430,6 +428,7 @@ angular.module('resume').service('schema', ['WorkColors', 'EducationColors', fun
         includeColorsInResumeSchema(newSchema);
         includeLinkedProfileUrlInResumeSchema(newSchema);
         includeDescriptors(newSchema);
+        includeProjects(newSchema);
 
         return newSchema;
     }
@@ -469,6 +468,25 @@ angular.module('resume').service('schema', ['WorkColors', 'EducationColors', fun
         };
     }
 
+    function includeProjects(schema) {
+        schema["properties"]["projects"] = {
+            "type": "array",
+            "description": "Descriptors",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        };
+    }
+
     this.new = getNewResumeSchema;
 }]);
 
@@ -490,11 +508,11 @@ angular.module('resume').service('sampleResume', ['$http', 'WorkColors', 'Educat
     }
 
     function addRandomDescriptors(resume) {
-        resume.descriptors = ["Fun", "Inspired", "Energetic", "Honest", "Creative", "Curious", "Doer", "Honorable", "Inventor", "Resourceful"];
+        resume.descriptors = ["Fun", "Inspired", "Energetic", "Honest", "Resourceful", "Innovative", "Creative", "Curious", "Inventor"];
     }
 
     function addRandomInterests(resume) {
-        var interests = ["NASA", "Quadcopters", "Running"];
+        var interests = ["NASA", "Quadcopters", "Running", "Raspberry Pi", "Hackathons", "Traveling", "DIY", "Eating", "Selfie's"];
         resume.interests = interests.map(function(i) {
             return {
                 name: i
@@ -584,6 +602,8 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
         });
     });
 
+    S = $scope;
+
     $scope.$watch('resume', function(r) {
         if (r && r.id) {
             $location.search({
@@ -639,7 +659,7 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
 
     $scope.getLinkedInResume = function(editor) {
         // var onLinkedInAuth = function onLinkedInAuth() {
-        IN.API.Profile('me').fields('firstName', 'lastName', 'headline', 'picture-url', 'summary', 'specialties', 'positions', 'email-address', 'languages', 'skills', 'educations', 'location:(name,country)', 'recommendations-received', 'phone-numbers', 'volunteer', 'publications', 'honors-awards', 'public-profile-url').result(function(data) {
+        IN.API.Profile('me').fields('firstName', 'lastName', 'headline', 'picture-url', 'summary', 'specialties', 'positions', 'email-address', 'languages', 'skills', 'educations', 'location:(name,country)', 'recommendations-received', 'phone-numbers', 'volunteer', 'publications', 'honors-awards', 'public-profile-url', 'projects').result(function(data) {
             var profile = data.values[0];
             var resume = new LinkedInToJsonResume().process(profile);
             resume.linkedIn = {

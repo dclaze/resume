@@ -11,6 +11,7 @@ LinkedInToJsonResume.prototype.process = function(profile) {
     this._processReferences(profile, target);
     this._processVolunteer(profile, target);
     this._processAwards(profile, target);
+    this._processProjects(profile, target);
 
     return target;
 }
@@ -136,4 +137,15 @@ LinkedInToJsonResume.prototype._processAwards = function(source, target) {
     }) : [];
 
     target.awards = awards;
+};
+
+LinkedInToJsonResume.prototype._processProjects = function(source, target) {
+    var projects = source.projects && source.projects.values ? source.projects.values.map(function(project) {
+        return {
+            name: project.name,
+            description: project.description
+        };
+    }) : [];
+
+    target.projects = projects;
 };

@@ -17,7 +17,7 @@ p {
 }
 
 p + p {
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
 .fullscreen {
@@ -121,12 +121,15 @@ section {
     display: none;
 }
 
-.profile-picture video {
+.profile-picture video,
+.profile-picture div {
     display: none;
 }
 
-.profile-picture:hover video {
+.profile-picture:hover video,
+.profile-picture:hover div {
     display: block;
+    text-align: center;
 }
 
 .contact-info {
@@ -188,6 +191,7 @@ body:not(:hover) .print {
 .ribbon {
     width: 300px;
     color: white;
+    font-weight: bold;
     text-align: center;
     position: fixed;
     top: 75px;
@@ -210,7 +214,8 @@ body:not(:hover) .print {
 .work-info-item {}
 
 .work-info-item .header,
-.volunteering-info .header {
+.volunteering-info .header,
+.projects .header {
     vertical-align: middle;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -219,7 +224,8 @@ body:not(:hover) .print {
 }
 
 .work-info-item .title,
-.volunteering-info .title {
+.volunteering-info .title,
+.projects .title {
     font-size: 1.2em;
     color: #0083b9;
     text-transform: uppercase;
@@ -247,9 +253,15 @@ body:not(:hover) .print {
 }
 
 .work-info-item .description,
-.volunteering-info .description {
-    padding: 1em;
+.volunteering-info .description,
+.projects .description,
+.references .description {
+    padding: 0.4em 1em 0.4em 1em;
     font-style: italic;
+}
+
+.education-info {
+    margin-bottom: -1em;
 }
 
 .education-info th {
@@ -316,10 +328,13 @@ th:not(:last-child) {
     width: 50%;
 }
 
-.skills {}
+.skills {
+    max-height: 10em;
+    height: 200px;
+    overflow: hidden;
+}
 
 .skills ul {
-    /*max-height: 20px;*/
     list-style-type: none;
 }
 
@@ -327,12 +342,11 @@ th:not(:last-child) {
     text-transform: uppercase;
     vertical-align: middle;
     font-size: 0.8em;
-    line-height: 1.5em;
+    line-height: 1.8em;
     float: left;
     display: inline;
     padding-left: 1em;
     padding-bottom: 1em;
-    /*width: 40%;*/
 }
 
 .meter {
