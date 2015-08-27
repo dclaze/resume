@@ -123,20 +123,20 @@ section {
 
 .profile-picture {}
 
-.profile-picture:hover img {
+/*.profile-picture:hover img {
     display: none;
-}
+}*/
 
 .profile-picture video,
 .profile-picture div {
     display: none;
 }
 
-.profile-picture:hover video,
+/*.profile-picture:hover video,
 .profile-picture:hover div {
     display: block;
     text-align: center;
-}
+}*/
 
 .contact-info {
     margin: auto;
