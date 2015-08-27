@@ -512,7 +512,7 @@ angular.module('resume').service('sampleResume', ['$http', 'WorkColors', 'Educat
     }
 
     function addRandomInterests(resume) {
-        var interests = ["NASA", "Quadcopters", "Running", "Raspberry Pi", "Hackathons", "Traveling", "DIY", "Eating", "Selfie's"];
+        var interests = ["NASA", "Quadcopters", "Running", "Raspberry Pi", "Hackathons", "Traveling", "DIY", "Eating", "Robots"];
         resume.interests = interests.map(function(i) {
             return {
                 name: i
@@ -633,7 +633,7 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
     $scope.open = function() {
         var cloneOfResume = $scope.resume.isNew() ? undefined : angular.copy($scope.resume);
         ngDialog.open({
-            template: '<div><button data-ng-click="getLinkedInResume(editor)">Load from LinkedIn</button><button data-ng-click="onSave(editor, existingId)">Save</button><div id="resume-editor"></div></div>',
+            template: '<div md-theme="docs-dark"><button data-ng-click="getLinkedInResume(editor)">Load from LinkedIn</button><button data-ng-click="onSave(editor, existingId)">Save</button><div id="resume-editor"></div></div>',
             plain: true,
             scope: $scope,
             closeByDocument: false,
@@ -651,7 +651,7 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
                 $scope.editor = new JSONEditor(resumeEditorDiv, options);
                 $scope.existingId = cloneOfResume && cloneOfResume.id;
             }],
-            className: 'ngdialog-theme-default modal'
+            className: 'ngdialog-theme-default modal docs-dark'
         });
     };
 

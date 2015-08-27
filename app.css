@@ -4,10 +4,16 @@
 }
 
 body {
-    color: #343338;
+    color: #343338 ;
+    font-family: Times;
     /*Default Color*/
-    margin: auto;
-    max-width: 992px;
+    margin: auto !important;
+    max-width: 992px !important;
+}
+
+a {
+    color: #343338!important;
+    text-decoration: none !important;
 }
 
 p {
@@ -141,11 +147,6 @@ section {
     padding: 4px;
 }
 
-a {
-    color: #343338;
-    text-decoration: none;
-}
-
 .contact-info .icon {
     margin-right: 1.2em;
 }
@@ -185,7 +186,7 @@ body:not(:hover) .print {
 }
 
 .descriptors {
-    margin-bottom: -40px;
+    margin-bottom: -50px;
 }
 
 .ribbon {
@@ -225,7 +226,8 @@ body:not(:hover) .print {
 
 .work-info-item .title,
 .volunteering-info .title,
-.projects .title {
+.projects .title,
+.awards .title {
     font-size: 1.2em;
     color: #0083b9;
     text-transform: uppercase;
@@ -255,9 +257,24 @@ body:not(:hover) .print {
 .work-info-item .description,
 .volunteering-info .description,
 .projects .description,
+.references .description,
+.awards .description {
+    padding: 0.4em 1em 0.4em 1em;
+    font-style: italic;
+}
+
+.skills{
+    margin-bottom: -1em;
+}
+
+.interests{
+    margin-bottom: -4em;
+}
+
 .references .description {
     padding: 0.4em 1em 0.4em 1em;
     font-style: italic;
+    font-size: 0.8em;
 }
 
 .education-info {

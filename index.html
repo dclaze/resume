@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="bower_components\ngDialog\css\ngDialog.css">
     <link rel="stylesheet" type="text/css" href="bower_components\ngDialog\css\ngDialog-theme-default.css">
     <link rel="stylesheet" type="text/css" href="print.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.1/angular-material.css">
     <script type="text/javascript" src="bower_components\angular\angular.js"></script>
     <script type="text/javascript" src="bower_components\angular-resource\angular-resource.js"></script>
     <script type="text/javascript" src="bower_components\angular-route\angular-route.js"></script>
@@ -216,12 +217,21 @@
                 </section>
                 <section class="references" data-show="resume.references.length">
                     <header>
-                        <img class="icon" src="icons/recommendation.png" /> Recomendations
+                        <img class="icon" src="icons/recommendation.png" /> Recommendations
                     </header>
                     <div>
                         <img class="icon" src="icons/open-quotes.png" />
-                        <div class="description">{{resume.references[resume.references.length-1].reference.split('.')[0]}}</div>
+                        <div class="description">{{resume.references[resume.references.length-1].reference.split('.').slice(0,3).join(". ")}}</div>
                         <img class="icon" style="float:right;" src="icons/close-quotes.png" /> - {{resume.references[resume.references.length-1].name}}
+                    </div>
+                </section>
+                <section class="awards" data-show="resume.awards">
+                    <header>
+                        <img class="icon" src="icons/awards.png" /> Awards
+                    </header>
+                    <div>
+                        <div class="header">{{resume.awards[0].name}}</div>
+                        <div class="description">{{resume.awards[0].description}}</div>
                     </div>
                 </section>
                 <section class="flex">

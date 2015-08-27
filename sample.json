@@ -1,7 +1,7 @@
 {
     "basics": {
         "name": "Doug Colaizzo",
-        "label": "Software Developer  at Marathon Data Systems",
+        "label": "Software Engineer  at Marathon Data Systems",
         "picture": "asbury_doug.png",
         "video": "videos/asbury_agile_10-2-13.MOV",
         "email": "dcolaizzo@gmail.com",
@@ -232,9 +232,10 @@
         "summary": "Mentored NJIT students during their senior CS Capstone semester project. Organized design sessions, code reviews, and training. Lead 6 teams during 6 semesters, placing 1st or 2nd place in 4 of the 6 semester showcases.",
         "highlights": []
     }],
-    "awards": [
-
-    ],
+    "awards": [{
+        "name": "NJIT Division 1 Cross Country TOP 7",
+        "description": "Competed in Division 1 athletics and helped the team reach North East Regional."
+    }],
     "projects": [{
         "name": "McHacks 2014: RescueMe",
         "description": "A rescue quadcopter. Hackathon concept utilizing heart rate sensor to trigger GPS guided drone search and rescue."

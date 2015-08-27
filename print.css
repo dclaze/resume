@@ -21,4 +21,7 @@
     .experience {
         display: none;
     }
+    .linked-in .qr-code {
+        width: 20%;
+    }
 }
