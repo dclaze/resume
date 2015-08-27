@@ -602,8 +602,6 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
         });
     });
 
-    S = $scope;
-
     $scope.$watch('resume', function(r) {
         if (r && r.id) {
             $location.search({
