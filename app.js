@@ -588,7 +588,7 @@ angular.module('resume').filter('linkedInProfession', function() {
     }
 });
 
-angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'schema', 'googleAddressLookup', 'WorkColors', 'EducationColors', '$location', 'sampleResume', function($scope, Resume, ngDialog, schema, googleAddressLookup, WorkColors, EducationColors, $location, sampleResume) {
+angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'schema', 'googleAddressLookup', 'WorkColors', 'EducationColors', '$location', 'sampleResume', '$rootScope', function($scope, Resume, ngDialog, schema, googleAddressLookup, WorkColors, EducationColors, $location, sampleResume, $rootScope) {
     $scope.resume = Resume.get({
         id: $location.search().profile || "_no_id_"
     }, function(r) {
@@ -606,8 +606,9 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
         if (r && r.id) {
             $location.search({
                 profile: r.id
-            })
+            });
         }
+        $rootScope.title = r.basics && r.basics.name;
     }, true);
 
     function addWorkLocations(resume) {
