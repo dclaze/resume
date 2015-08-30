@@ -3,12 +3,21 @@
     overflow-y: scroll;
 }
 
-body {
-    color: #343338 ;
-    font-family: Times;
-    /*Default Color*/
-    margin: auto !important;
-    max-width: 992px !important;
+@media screen {
+    body {
+        color: #343338;
+        font-family: Times;
+        margin: 0 auto;
+        max-width: 992px;   
+    }
+}
+
+@media screen and ( min-width: 992px) {
+    body {
+        box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
 }
 
 a {
@@ -123,6 +132,7 @@ section {
 
 .profile-picture {}
 
+
 /*.profile-picture:hover img {
     display: none;
 }*/
@@ -131,6 +141,7 @@ section {
 .profile-picture div {
     display: none;
 }
+
 
 /*.profile-picture:hover video,
 .profile-picture:hover div {
@@ -263,11 +274,11 @@ body:not(:hover) .print {
     font-style: italic;
 }
 
-.skills{
+.skills {
     margin-bottom: -1em;
 }
 
-.interests{
+.interests {
     margin-bottom: -4em;
 }
 
