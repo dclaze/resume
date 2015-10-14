@@ -13,15 +13,16 @@
     "tests"
   ],
   "dependencies": {
-    "d3-cloud": "https://github.com/jasondavies/d3-cloud.git#~1.1.1",
-    "d3": "~3.5.5",
-    "d3-timeline": "~0.0.5",
-    "typed.js": "*",
-    "jquery": "~2.1.4",
     "angular": "~1.4.3",
-    "angular-resource": "~1.4.3",
     "angular-json-editor": "~0.1.8",
+    "angular-resource": "~1.4.3",
     "angular-route": "~1.4.3",
-    "ngDialog": "~0.5.1"
+    "angular-youtube-mb": "~1.1.1",
+    "d3": "~3.5.5",
+    "d3-cloud": "https://github.com/jasondavies/d3-cloud.git#~1.1.1",
+    "d3-timeline": "~0.0.5",
+    "jquery": "~2.1.4",
+    "ngDialog": "~0.5.1",
+    "typed.js": "*"
   }
 }

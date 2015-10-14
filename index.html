@@ -10,10 +10,11 @@
     <script type="text/javascript" src="bower_components\angular\angular.js"></script>
     <script type="text/javascript" src="bower_components\angular-resource\angular-resource.js"></script>
     <script type="text/javascript" src="bower_components\angular-route\angular-route.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="bower_components\angular-youtube-mb\src\angular-youtube-embed.js"></script>
     <script type="text/javascript" src="bower_components\json-editor\dist\jsoneditor.js"></script>
     <script type="text/javascript" src="bower_components\angular-json-editor\dist\angular-json-editor.js"></script>
     <script type="text/javascript" src="bower_components\ngDialog\js\ngDialog.js"></script>
-    <script type="text/javascript" src="html5-video-autoplay-on-hover.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="text/javascript" src="international-map.js"></script>
     <script type="text/javascript" src="bower_components\d3\d3.min.js"></script>
@@ -32,21 +33,21 @@
     <script type="text/javascript" src="LinkedInToJsonResume.js"></script>
     <title>{{title}}</title>
     <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-66792740-1', 'auto');
-        ga('send', 'pageview', {
-            page: '/resume'
-        });
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-66792740-1', 'auto');
+    ga('send', 'pageview', {
+        page: '/resume'
+    });
     </script>
 </head>
 
@@ -66,11 +67,16 @@
             </div>
             <div class="profile-picture">
                 <a data-ng-href="{{resume.linkedIn.profileUrl}}">
-                    <img class="rounded" data-ng-src="{{resume.basics.picture}}" />
-                    <video class="rounded" data-ng-if="resume.basics.video">
-                        <source src="{{resume.basics.video}}" type="video/mp4"> Your browser does not support the video tag.
-                        </source>
-                    </video>
+                    <img class="rounded picture" data-ng-mouseenter="youtubePlayer.playVideo()" data-ng-src="{{resume.basics.picture}}" />
+                    <div class="rounded video" data-ng-mouseleave="youtubePlayer.pauseVideo()">
+                        <youtube-video
+                            class="youtube-video"
+                            video-id="resume.basics.video"
+                            player="youtubePlayer"
+                            player-vars="{controls:0}"
+                            >
+                        </youtube-video>
+                    </div>
                     <div class="rounded" data-ng-if="!resume.basics.video">
                     </div>
                 </a>

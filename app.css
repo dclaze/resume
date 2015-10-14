@@ -8,7 +8,7 @@
         color: #343338;
         font-family: Times;
         margin: 0 auto;
-        max-width: 992px;   
+        max-width: 992px;
     }
 }
 
@@ -79,7 +79,17 @@ p + p {
 .rounded {
     height: 200px;
     width: 200px;
+    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+    -webkit-transform: rotate(0.000001deg);
+    -webkit-border-radius: 400px;
+    -moz-border-radius: 400px;
     border-radius: 400px;
+    overflow: hidden;
+}
+
+.video iframe {
+    height: 200px;
+    width: 200px;
 }
 
 .small-icon {
@@ -132,22 +142,15 @@ section {
 
 .profile-picture {}
 
-
-/*.profile-picture:hover img {
-    display: none;
-}*/
-
-.profile-picture video,
-.profile-picture div {
+.profile-picture:hover .picture,
+.profile-picture .video {
     display: none;
 }
 
-
-/*.profile-picture:hover video,
-.profile-picture:hover div {
+.profile-picture:hover .video {
     display: block;
     text-align: center;
-}*/
+}
 
 .contact-info {
     margin: auto;

@@ -1,4 +1,4 @@
-angular.module('resume', ['ngResource', 'ngDialog', 'ngRoute']);
+angular.module('resume', ['ngResource', 'ngDialog', 'ngRoute', 'youtube-embed']);
 
 angular.module('resume').constant('WorkColors', ["#343338", "#146ea3"]);
 
@@ -654,7 +654,6 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
             className: 'ngdialog-theme-default modal docs-dark'
         });
     };
-
 
     $scope.getLinkedInResume = function(editor) {
         // var onLinkedInAuth = function onLinkedInAuth() {
