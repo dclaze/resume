@@ -6,6 +6,7 @@ app.use(express.static(__dirname));
 app.use(express.static(__dirname + '/public'));
 
 app.listen(32132);
+console.log(["Started server on",32132].join(" "));
 
 var pathToWkHtmlToPdf = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf";
 
