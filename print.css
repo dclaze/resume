@@ -1,6 +1,7 @@
 @media print {
     body {
         width: 992px;
+        margin: 0 auto;
     }
     .print .icon {
         display: none;
