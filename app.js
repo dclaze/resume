@@ -37,7 +37,11 @@ angular.module('resume').directive('workSummary', function() {
         controller: ['$scope', function($scope) {
             $scope.$watch('summary', function(summary) {
                 if (summary) {
-                    $scope.summaries = summary.split(/☛/);
+                    $scope.summaries = summary.split(/☛/).map(function(s) {
+                        return s.trim();
+                    }).filter(function(s) {
+                        return s;
+                    });
                 }
             });
         }]
