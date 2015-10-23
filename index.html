@@ -109,13 +109,13 @@
                 <img class="icon" src="icons/print.png" />
             </a>
         </div>
-        <div class="row">
+        <div class="row main-container">
             <div class="left-section column flex">
                 <section>
                     <header>
                         <img class="icon" src="icons/workexperience.png" /> Work Experience
                     </header>
-                    <div class="work-info-item" data-ng-repeat="workItem in resume.work">
+                    <div class="work-info-item" data-ng-attr-id="{{workItem.company}}" data-ng-repeat="workItem in resume.work">
                         <div class="header row stretch">
                             <span class="title">{{workItem.position}}</span> -
                             <span class="employer flex">{{workItem.company}}</span>
@@ -216,12 +216,10 @@
                     <header>
                         <img class="icon" src="icons/skills.png" /> Skills
                     </header>
-                    <div>
-                        <ul>
-                            <li class="row skill-item" data-ng-repeat="skill in resume.skills">
-                                <span>{{skill.name}}</span>
-                            </li>
-                        </ul>
+                    <div style="text-align:center;">
+                        <div class="row skill-item" data-ng-repeat="skill in resume.skills">
+                            <span>{{skill.name}}</span>
+                        </div>
                     </div>
                 </section>
                 <section class="experience">

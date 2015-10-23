@@ -114,13 +114,18 @@ p + p {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #f2f2f2;
+    flex-wrap: wrap;
+}
+
+.main-container{
+    flex-wrap: wrap;
 }
 
 .left-section {
     border-right-style: solid;
     border-right-width: 1px;
     border-right-color: #f2f2f2;
-}
+ }
 
 .right-section {
     width: 30%;
@@ -155,6 +160,15 @@ section {
 .contact-info {
     margin: auto;
     padding: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .left-section, .right-section, .contact-info {
+        width: 100%;
+    }
+    .profile-picture, .ribbon{
+        display: none;
+    }
 }
 
 .contact-info .method {
@@ -218,6 +232,10 @@ body:not(:hover) .print {
     cursor: pointer;
 }
 
+.ribbon{
+    display: none;/*Remove me*/
+}
+
 .github-ribbon {
     position: fixed;
     top: 0;
@@ -277,17 +295,11 @@ body:not(:hover) .print {
     font-style: italic;
 }
 
-.skills {
-    margin-bottom: -1em;
-}
-
 .interests {
     margin-bottom: -4em;
 }
 
 .references .description {
-    padding: 0.4em 1em 0.4em 1em;
-    font-style: italic;
     font-size: 0.8em;
 }
 
@@ -360,13 +372,10 @@ th:not(:last-child) {
 }
 
 .skills {
+    box-sizing: border-box;
     max-height: 10em;
     height: 200px;
     overflow: hidden;
-}
-
-.skills ul {
-    list-style-type: none;
 }
 
 .skills .skill-item {
@@ -374,8 +383,8 @@ th:not(:last-child) {
     vertical-align: middle;
     font-size: 0.8em;
     line-height: 1.8em;
-    float: left;
-    display: inline;
+    /*float: left;*/
+    display: inline-block;
     padding-left: 1em;
     padding-bottom: 1em;
 }
