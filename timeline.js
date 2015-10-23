@@ -1,4 +1,4 @@
-angular.module('resume').directive('timeline', ['EducationIcons', function(EducationIcons) {
+angular.module('resume').directive('timeline', ['EducationIcons', '$anchorScroll', function(EducationIcons, $anchorScroll) {
     return {
         scope: {
             resume: "=timeline"
@@ -78,6 +78,9 @@ angular.module('resume').directive('timeline', ['EducationIcons', function(Educa
 
                 d3.select($element[0])
                     .selectAll("rect")
+                    .on('click', function(d){
+                        $anchorScroll(d.title);
+                    })
                     .append("svg:title")
                     .text(function(d) {
                         return d.title;
