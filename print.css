@@ -3,15 +3,18 @@
         width: 992px;
         margin: 0 auto;
     }
-    .print .icon {
-        display: none;
-    }
-    .ribbon {
-        display: none;
-    }
     @page {
         size: auto;
         margin: 5mm;
+    }
+    .print .icon {
+        display: none;
+    }
+    .rounded {
+        -webkit-mask-image: none;
+    }
+    .ribbon {
+        display: none;
     }
     .github-ribbon {
         display: none;

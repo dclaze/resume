@@ -3,7 +3,7 @@
         "name": "Doug Colaizzo",
         "label": "Software Engineer  at Marathon Data Systems",
         "picture": "asbury_doug.png",
-        "video": "videos/asbury_agile_10-2-13.MOV",
+        "video": "RSyFhKX9wYo",
         "email": "dcolaizzo@gmail.com",
         "phone": "2019531983",
         "website": "www.dougcolaizzo.com",
@@ -20,7 +20,7 @@
     },
     "work": [{
         "company": "WorkWave",
-        "position": "Software Engineer",
+        "position": "Senior Software Engineer",
         "website": "",
         "startDate": "2012-05-01",
         "summary": "☛ Architect and implement distributed message based platform applying SOA using NServiceBus and RavenDB for a SaaS Field Service Automation system.☛ Design Restful API using C# WebAPI. Develop HTML5 Single Page Application using AngularJS.☛ Lead discussions with Product Management and Engineering teams to apply DDD to actual customer business workflows.☛ Lead TDD (xUnit and SpecFlow),  and Agile Methodology processes to promote team best practices, code craftsmanship, and quality. ☛ Implement continuous deployment strategies using TeamCity, Octopus, and AWS.",
@@ -96,6 +96,14 @@
         "level": "",
         "keywords": []
     }, {
+        "name": "Git",
+        "level": "",
+        "keywords": []
+    },  {
+        "name": "Android",
+        "level": "",
+        "keywords": []
+    },{
         "name": "Python",
         "level": "",
         "keywords": []
@@ -104,11 +112,11 @@
         "level": "",
         "keywords": []
     }, {
-        "name": "MySQL",
+        "name": "PHP",
         "level": "",
         "keywords": []
-    }, {
-        "name": "PHP",
+    },{
+        "name": "MySQL",
         "level": "",
         "keywords": []
     }, {
@@ -121,10 +129,6 @@
         "keywords": []
     }, {
         "name": "Web Development",
-        "level": "",
-        "keywords": []
-    }, {
-        "name": "Git",
         "level": "",
         "keywords": []
     }, {
@@ -159,11 +163,7 @@
         "name": "Photoshop",
         "level": "",
         "keywords": []
-    }, {
-        "name": "Android Development",
-        "level": "",
-        "keywords": []
-    }, {
+    },  {
         "name": "SOA",
         "level": "",
         "keywords": []

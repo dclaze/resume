@@ -1,4 +1,4 @@
-angular.module('resume', ['ngResource', 'ngDialog', 'ngRoute']);
+angular.module('resume', ['ngResource', 'ngDialog', 'ngRoute', 'youtube-embed']);
 
 angular.module('resume').constant('WorkColors', ["#343338", "#146ea3"]);
 
@@ -37,7 +37,11 @@ angular.module('resume').directive('workSummary', function() {
         controller: ['$scope', function($scope) {
             $scope.$watch('summary', function(summary) {
                 if (summary) {
-                    $scope.summaries = summary.split(/☛/);
+                    $scope.summaries = summary.split(/☛/).map(function(s) {
+                        return s.trim();
+                    }).filter(function(s) {
+                        return s;
+                    });
                 }
             });
         }]
@@ -654,7 +658,6 @@ angular.module('resume').controller('Main', ['$scope', 'Resume', 'ngDialog', 'sc
             className: 'ngdialog-theme-default modal docs-dark'
         });
     };
-
 
     $scope.getLinkedInResume = function(editor) {
         // var onLinkedInAuth = function onLinkedInAuth() {
